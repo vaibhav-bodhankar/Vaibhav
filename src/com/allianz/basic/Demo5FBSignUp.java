@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -16,19 +17,26 @@ public class Demo5FBSignUp {
 	    
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		
-		driver.get("https://www.facebook.com/");
+		driver.get("https://www.facebook.com");
 		//click on create new account
         //findElement -> Check the presence of element in 0.5 sec
-		driver.findElement(By.linkText("Create new account")).click();
+		//driver.findElement(By.linkText("Create new account")).click();
+		
+		driver.findElement(By.linkText("Sign up for Facebook")).click();
 		Thread.sleep(5000);
 		//enter first name as john
 		driver.findElement(By.name("firstname")).sendKeys("Jack");
 		
+		//enter last name as mark
 		driver.findElement(By.name("lastname")).sendKeys("mark");
+		//By loc=By.id("email");
+	//	WebElement ele = driver.findElement(loc);
+		//WebElement ele = driver.findElement(By.id("email"));
+	//	ele.sendKeys("jackmark@gmail.com");
 	
 		driver.findElement(By.name("reg_email__")).sendKeys("jackmark@gmail.com");
 		
-		driver.findElement(By.name("reg_email_confirmation__")).sendKeys("jackmark@gmail.com");
+		//driver.findElement(By.name("reg_email_confirmation__")).sendKeys("jackmark@gmail.com");
 		
 		driver.findElement(By.name("reg_passwd__")).sendKeys("jackmark@1234");
 		
@@ -52,6 +60,9 @@ public class Demo5FBSignUp {
 	   // driver.findElement(By.name("sex")).click();
 	    
 	    driver.findElement(By.name("websubmit")).click();
+	    
+	    driver.findElement(By.linkText("No, Create New Account")).click();
+	    
 //		
 	
 	}
